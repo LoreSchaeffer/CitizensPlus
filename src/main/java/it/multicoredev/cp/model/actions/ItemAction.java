@@ -142,7 +142,7 @@ public class ItemAction extends Action {
     }
 
     public Integer getAmount() {
-        return amount;
+        return amount != null ? amount : 1;
     }
 
     public String getName() {
@@ -192,7 +192,7 @@ public class ItemAction extends Action {
                 .replace("{y}", DF.format(player.getLocation().getY()))
                 .replace("{z}", DF.format(player.getLocation().getZ()));
 
-        ItemStack item = new ItemStack(mat, amount);
+        ItemStack item = new ItemStack(mat, getAmount());
         if (name != null || (lore != null && !lore.isEmpty())) {
             ItemMeta meta = item.getItemMeta();
 
