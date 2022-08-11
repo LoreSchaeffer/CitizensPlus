@@ -242,5 +242,6 @@ public class ItemAction extends Action {
         if (item == null) return;
 
         if (!player.getInventory().addItem(item).isEmpty()) player.getWorld().dropItem(player.getLocation(), item);
+        plugin.db().insert(player, hashCode());
     }
 }

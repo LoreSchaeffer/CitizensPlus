@@ -170,7 +170,7 @@ public class NPCPCommand implements CommandExecutor, TabCompleter {
             return true;
         } else if (args[0].equalsIgnoreCase("createExample")) {
             plugin.npcs().addData(new NPCData(
-                    -1,
+                    plugin.createExampleNpc(player.getLocation()),
                     "If this is null the default format will be used",
                     false,
                     false,

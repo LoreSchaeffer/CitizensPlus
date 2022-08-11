@@ -6,7 +6,10 @@ import it.multicoredev.cp.storage.Database;
 import it.multicoredev.cp.storage.NPCs;
 import it.multicoredev.mbcore.spigot.pmc.PluginMessageChannel;
 import it.multicoredev.mclib.json.GsonHelper;
+import net.citizensnpcs.api.CitizensAPI;
 import net.citizensnpcs.api.npc.NPC;
+import org.bukkit.Location;
+import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.event.HandlerList;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -135,5 +138,11 @@ public class CitizensPlus extends JavaPlugin {
 
     public int getSelectedNPC(Player player) {
         return selectedNPCs.get(player);
+    }
+
+    public int createExampleNpc(Location location) {
+        NPC npc = CitizensAPI.getNPCRegistry().createNPC(EntityType.PLAYER, "example");
+        npc.spawn(location);
+        return npc.getId();
     }
 }
